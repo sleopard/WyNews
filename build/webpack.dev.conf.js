@@ -27,6 +27,18 @@ module.exports = merge(baseWebpackConfig, {
       template: 'index.html',
       inject: true
     }),
+    new webpack.ProvidePlugin(
+      {
+        _: "lodash"
+      }),
+    new webpack.ProvidePlugin(
+      {
+        React: "react"
+      }),
+    new webpack.ProvidePlugin(
+      {
+        ReactDOM: "react-dom"
+      }),
     new FriendlyErrorsPlugin()
   ]
 })

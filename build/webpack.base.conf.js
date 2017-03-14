@@ -27,7 +27,7 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['*', '.ts', '.tsx', '.js', '.jsx']
+    extensions: ['*', '.js', '.jsx']
   },
   module: {
     rules: [
@@ -40,17 +40,8 @@ module.exports = {
         }
       },
       {
-        // The loader that handles ts and tsx files.  These are compiled
-        // with the ts-loader and the output is then passed through to the
-        // babel-loader.  The babel-loader uses the es2015 and react presets
-        // in order that jsx and es6 are processed.
-        test: /\.ts(x?)$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader?presets[]=es2015&presets[]=react!ts-loader'
-      },
-      {
-        test: /\.js$/, 
-        loader: 'babel-loader' 
+        test: /\.js$/,
+        loader: 'babel-loader'
       },
       {
         test: /\.css$/,

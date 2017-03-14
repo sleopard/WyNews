@@ -32,6 +32,10 @@ var webpackConfig = merge(baseWebpackConfig, {
     }),
     new webpack.ProvidePlugin(
       {
+        _: "lodash"
+      }),
+    new webpack.ProvidePlugin(
+      {
         React: "react"
       }),
     new webpack.ProvidePlugin(
