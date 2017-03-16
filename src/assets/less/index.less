@@ -7,6 +7,7 @@
 }
 
 .list-content {
+    margin: 0 10px;
     a {
         display: -webkit-box;
         /* OLD - iOS 6-, Safari 3.1-6 */
@@ -19,17 +20,34 @@
         display: flex;
         width: 100%;
         border-bottom: 1px solid #e5e5e5;
+        padding: 10px 0;
         .item-icon {
-            margin: 10px;
             img {
+                margin-right: 10px;
                 width: 5.8rem;
             }
         }
         .item-info {
-            margin: 10px;
+            // margin: 10px;
             font-size: 0.6rem;
-            .title {
-                font-size: 0.8rem
+            .item-title {
+                font-size: 1rem;
+                color: #404040;
+            }
+            .item-more {
+                overflow: hidden;
+                color: #888;
+                div {
+                    margin: 5px;
+                }
+                .article_channel {
+                    color: #f33;
+                    font-size: 12px;
+                    padding: 2px;
+                    background: url(http://img2.cache.netease.com/f2e/wap/common/images/border_red.png) no-repeat;
+                    background-size: 100% 100%;
+                    line-height: 12px;
+                }
             }
         }
     }
