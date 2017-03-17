@@ -30,18 +30,18 @@ var webpackConfig = merge(baseWebpackConfig, {
     new ExtractTextPlugin({
       filename: utils.assetsPath('css/[name].[contenthash].css')
     }),
-    new webpack.ProvidePlugin(
-      {
-        _: "lodash"
-      }),
-    new webpack.ProvidePlugin(
-      {
-        React: "react"
-      }),
-    new webpack.ProvidePlugin(
-      {
-        ReactDOM: "react-dom"
-      }),
+    // new webpack.ProvidePlugin(
+    //   {
+    //     _: "lodash"
+    //   }),
+    // new webpack.ProvidePlugin(
+    //   {
+    //     React: "react"
+    //   }),
+    // new webpack.ProvidePlugin(
+    //   {
+    //     ReactDOM: "react-dom"
+    //   }),
     // generate dist index.html with correct asset hash for caching.
     // you can customize output by editing /index.html
     // see https://github.com/ampedandwired/html-webpack-plugin

@@ -1,14 +1,20 @@
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Header from './components/Header'
 import Home from './view/Home'
+import Footer from './components/Footer'
 class App extends React.Component {
     constructor(props) {
         super(props)
     }
     render() {
         return (
-            <div className="container">
-                <header></header>
-                <Home slider={[]} />
-                <footer></footer>
+            <div>
+                <Header />
+                <div className="container">
+                    <Home />
+                </div>
+                <Footer />
             </div>
         )
     }
