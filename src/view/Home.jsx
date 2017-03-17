@@ -1,21 +1,30 @@
 import Search from './../components/Search'
-import Swiper from './../components/Swiper'
-import Http from './../base/http.js'
+import Slider from './../components/Slider'
 class Home extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { list: [] }
         this.Init();
+        this.state = { list: [], slider: [] }
     }
     render() {
         return (
             <div>
+                {/*<Slider slider={this.props.slider} />*/}
+                <div className="swiper">
+                    {this.state.slider.map((item, key) => {
+                        if (item.title && item.picInfo.length > 0) {
+                            console.log(item);
+                            < a >
+                                <img src={item.picInfo[0].url} />
+                            </a>
+                        }
+                    })}
+                </div>
                 <div className="list-content">
                     <ul>
                         {
                             this.state.list.map((item, key) => {
                                 let count = item.picInfo.length;
-                                console.log(count)
                                 if (item.title) {
                                     if (item.imgsrc3gtype == 1) {
                                         return <li key={key}>
@@ -71,10 +80,10 @@ class Home extends React.Component {
     }
     Init() {
         var _self = this;
-        let http = new Http();
-        http.jsonp("http://3g.163.com/touch/jsonp/sy/recommend/0-10.html?hasad=1&offset=0&size=50").then((result) => {
-            _self.state.list = result.list
-            _self.setState(this.state);
+        ReactCom.$http.jsonp("http://3g.163.com/touch/jsonp/sy/recommend/0-10.html?hasad=1&offset=0&size=50").then((result) => {
+            _self.state.slider = result.focus;
+            _self.state.list = result.list;
+            _self.setState(_self.state);
         })
     }
 }
