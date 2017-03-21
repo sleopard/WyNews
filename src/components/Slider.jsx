@@ -23,15 +23,15 @@ class Slider extends React.Component {
     }
     Init() {
         var _self = this;
-        // setInterval(() => {
-        //     _self.state.index++;
-        //     if (_self.state.index > _self.props.sliderList.length) {
-        //         _self.state.index = 0;
-        //     }
-        //     _self.setState({
-        //         index: _self.state.index
-        //     })
-        // }, 3000)
+        setInterval(() => {
+            _self.state.index++;
+            if (_self.state.index >= _self.props.sliderList.length) {
+                _self.state.index = 0;
+            }
+            _self.setState({
+                index: _self.state.index
+            })
+        }, 3000)
     }
 }
 export default Slider;
