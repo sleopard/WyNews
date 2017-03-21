@@ -72,7 +72,7 @@ class Home extends React.Component {
     }
     Init() {
         var _self = this;
-        ReactCom.$http.jsonp("http://3g.163.com/touch/jsonp/sy/recommend/0-10.html?hasad=1&offset=0&size=50").then((result) => {
+        React.$http.jsonp("http://3g.163.com/touch/jsonp/sy/recommend/0-10.html?hasad=1&offset=0&size=50").then((result) => {
             _self.setState({
                 list: result.list
             });
