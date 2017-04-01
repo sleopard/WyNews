@@ -1,35 +1,14 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import Header from './components/Header'
 import Home from './view/Home'
 import Footer from './components/Footer'
 import {
     BrowserRouter as Router,
     Route,
-    Link,
-    browserHistory
+    Link
 } from 'react-router-dom'
-
-const rootRoute = {
-    path: '/index',
-    indexRoute: {
-        getComponent(nextState, cb) {
-            require.ensure([], (require) => {
-                cb(null, require('./view/Home'))
-            }, '')
-        },
-    },
-    getComponent(nextState, cb) {
-        require.ensure([], (require) => {
-            cb(null, require('./view/PersonalCenter'))
-        }, 'Main')
-    },
-    // childRoutes: [
-    //     require('./routes/baidu'),
-    //     require('./routes/404'),
-    //     require('./routes/redirect')
-    // ]
-}
+import DirectSeeding from './view/DirectSeeding'
+import PersonalCenter from './view/PersonalCenter'
 
 class App extends React.Component {
     constructor(props) {
@@ -37,22 +16,18 @@ class App extends React.Component {
     }
     render() {
         return (
-            <div>
-                <Header />
-                <div className="container">
-                    {/*<Home />*/}
-                    <Router
-                        history={browserHistory}
-                        routes={rootRoute}
-                    />
+            <Router>
+                <div>
+                    <Header />
+                    <div className="container">
+                        <Route exact path="/" component={Home} />
+                        <Route path="/seeding" component={DirectSeeding} />
+                        <Route path="/center" component={PersonalCenter} />
+                    </div>
+                    <Footer />
                 </div>
-                <Footer />
-            </div>
+            </Router>
         )
     }
 }
 export default App;
-
-
-
-//

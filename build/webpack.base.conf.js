@@ -73,10 +73,6 @@ module.exports = {
       }
     ]
   },
-  // externals: {
-  //   "react": "React",
-  //   "react-dom": "ReactDOM"
-  // },
   plugins: [
     extractCSS,
     extractLESS
