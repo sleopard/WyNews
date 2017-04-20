@@ -1,13 +1,15 @@
-// import Home from './view/Home.jsx';
-debugger;
 window.React = require("react");
-import ReactDOM from 'react-dom'
+window.ReactDOM = require("react-dom");
 import Http from './base/http.js'
-
-React.$http = new Http();
+import SnowLeoRouter from './router'
+import routers from './routers'
 
 import App from './App'
+
 require('./assets/less/main.less');
+
+new SnowLeoRouter(routers)
+React.$http = new Http();
 
 ReactDOM.render(
   <App />,

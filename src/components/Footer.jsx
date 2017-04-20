@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 class Footer extends React.Component {
     constructor(props) {
         super(props)
@@ -7,7 +7,7 @@ class Footer extends React.Component {
     render() {
         return (
             <footer>
-                <Link to="/">
+                {/*<Link to="/">
                     <img src='static/img/a8z.png' />
                     <span>新闻</span>
                 </Link>
@@ -22,7 +22,7 @@ class Footer extends React.Component {
                 <Link to="/center">
                     <img src='static/img/a90.png' />
                     <span>我</span>
-                </Link>
+                </Link>*/}
             </footer>
         )
     }

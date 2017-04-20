@@ -17,7 +17,8 @@ function resolve(dir) {
 
 module.exports = {
   entry: {
-    app: './src/main.js'
+    app: './src/main.js',
+    vendor: ['react']
   },
   output: {
     path: config.build.assetsRoot,
