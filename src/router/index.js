@@ -4,18 +4,18 @@ export default class SnowLeoRouter {
         this.init();
     }
     init() {
-        if (location.hash == "") {
-            this.push("/")
+        if (location.hash.length == 0) {
+            this.hash = '/';
+            this.push();
         } else {
-            this.go(location.hash);
+            this.hash = location.hash.substr(location.hash.indexOf('#') + 1);
+            this.go(this.hash);
         }
         window.addEventListener("hashchange", (e) => {
-            this.go(location.hash);
+            this.go(this.hash);
         });
     }
     go(hash) {
-        const i = hash.indexOf('#');
-        hash = hash.substr(i + 1)
         let router = this.opts.find((o) => {
             return o.name == hash;
         })
@@ -25,11 +25,20 @@ export default class SnowLeoRouter {
     }
     lazyLoad(router) {
         router.component.then(function (result) {
-            let el = document.querySelector("router-view");
-            result(el);
+            result(document.querySelector("router-view"));
         })
     }
-    push(hash) {
-        window.location.hash = hash;
+    push(hash = '/') {
+        window.location.hash = "#" + hash;
+    }
+    currentRouter() {
+        let router = this.opts.find((o) => {
+            return o.name == this.hash;
+        })
+        if (router) {
+            return router;
+        } else {
+            return {}
+        }
     }
 }

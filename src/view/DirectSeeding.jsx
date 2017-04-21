@@ -1,5 +1,3 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
 export default function (el) {
     class PersonalCenter extends React.Component {
         constructor(props) {

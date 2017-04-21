@@ -1,4 +1,3 @@
-import React from 'react'
 import Search from './../components/Search'
 import Slider from './../components/Slider'
 export default function (el) {
@@ -6,7 +5,6 @@ export default function (el) {
         constructor(props) {
             super(props)
             this.state = { list: [] }
-            this.Init();
         }
         render() {
             return (
@@ -62,18 +60,16 @@ export default function (el) {
                                             </li>
                                         }
                                     }
-                                }
-                                )
+                                })
                             }
                         </ul>
                     </div>
                 </div>
             )
         }
-        Init() {
-            var _self = this;
+        componentWillMount() {
             React.$http.jsonp("http://3g.163.com/touch/jsonp/sy/recommend/0-10.html?hasad=1&offset=0&size=50").then((result) => {
-                _self.setState({
+                this.setState({
                     list: result.list
                 });
                 let silderList = [];
@@ -84,13 +80,12 @@ export default function (el) {
                 })
                 ReactDOM.render(
                     <Slider sliderList={silderList} />,
-                    _self.refs.slider
+                    this.refs.slider
                 );
             })
         }
     }
     ReactDOM.render(
-        <Home />,
-        el,
+        <Home />, el
     );
 }
