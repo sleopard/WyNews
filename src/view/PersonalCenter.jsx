@@ -1,19 +1,13 @@
-import React from 'react'
-export default function (el) {
-    class PersonalCenter extends React.Component {
-        constructor(props) {
-            super(props)
-        }
-        render() {
-            return (
-                <div>
-                    123213121aaa
-            </div>
-            )
-        }
+export default class PersonalCenter extends React.Component {
+    constructor(props) {
+        super(props)
     }
-    ReactDOM.render(
-        <PersonalCenter />,
-        el,
-    );
+    render() {
+        return (
+            <div>
+                123213121aaa<br />
+                <a href="#/seed">1231</a>
+            </div>
+        )
+    }
 }

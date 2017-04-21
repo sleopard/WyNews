@@ -8,8 +8,8 @@ import App from './App'
 
 require('./assets/less/main.less');
 
-new SnowLeoRouter(routers)
 React.$http = new Http();
+React.$SnowLeoRouter = new SnowLeoRouter(routers)
 
 ReactDOM.render(
   <App />,

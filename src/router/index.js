@@ -1,44 +1,42 @@
-export default class SnowLeoRouter {
-    constructor(options) {
-        this.opts = options;
-        this.init();
-    }
-    init() {
-        if (location.hash.length == 0) {
-            this.hash = '/';
-            this.push();
-        } else {
-            this.hash = location.hash.substr(location.hash.indexOf('#') + 1);
-            this.go(this.hash);
-        }
-        window.addEventListener("hashchange", (e) => {
-            this.go(this.hash);
-        });
-    }
-    go(hash) {
-        let router = this.opts.find((o) => {
-            return o.name == hash;
-        })
-        if (router) {
-            this.lazyLoad(router)
-        }
-    }
-    lazyLoad(router) {
-        router.component.then(function (result) {
-            result(document.querySelector("router-view"));
-        })
-    }
-    push(hash = '/') {
-        window.location.hash = "#" + hash;
-    }
-    currentRouter() {
-        let router = this.opts.find((o) => {
-            return o.name == this.hash;
-        })
-        if (router) {
-            return router;
-        } else {
-            return {}
+export default function (options) {
+    var _self = this;
+    _self.$route = {}
+    _self.$routers = options;
+    var core = {
+        init() {
+            if (location.hash.length == 0) {
+                this.push();
+            } else {
+                this.go(location.hash);
+            }
+            window.addEventListener("hashchange", (e) => {
+                this.go(location.hash);
+            });
+        },
+        lazyLoad(router) {
+            router.component.then(function (Result) {
+                _self.$route = {
+                    name: router.name,
+                    hash: location.hash
+                }
+                ReactDOM.render(
+                    <Result />,
+                    document.querySelector("router-view")
+                );
+            })
+        },
+        go(hash) {
+            hash = hash.substr(location.hash.indexOf('#') + 1);
+            let router = _self.$routers.find((o) => {
+                return o.name == hash;
+            })
+            if (router) {
+                this.lazyLoad(router)
+            }
+        },
+        push(hash = '/') {
+            window.location.hash = "#" + hash;
         }
     }
+    core.init();
 }

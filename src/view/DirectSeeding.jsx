@@ -1,18 +1,12 @@
-export default function (el) {
-    class PersonalCenter extends React.Component {
-        constructor(props) {
-            super(props)
-        }
-        render() {
-            return (
-                <div>
-                    12321312
-            </div>
-            )
-        }
+export default class PersonalCenter extends React.Component {
+    constructor(props) {
+        super(props)
     }
-    ReactDOM.render(
-        <PersonalCenter />,
-        el,
-    );
+    render() {
+        return (
+            <div>
+                seed
+            </div>
+        )
+    }
 }
