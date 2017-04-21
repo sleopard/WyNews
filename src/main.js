@@ -1,7 +1,7 @@
 window.React = require("react");
 window.ReactDOM = require("react-dom");
 import Http from './base/http.js'
-import SnowLeoRouter from './router'
+import SnowLeoRouter from './core/snowLeoRouter'
 import routers from './routers'
 
 import App from './App'
