@@ -1,6 +1,6 @@
 # y
 
-> Baison.M6.ModelVeiwFront
+> WyNews
 
 ## Build Setup
 
