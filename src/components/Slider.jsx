@@ -1,4 +1,3 @@
-import React from 'react'
 class Slider extends React.Component {
     constructor(props) {
         super(props)
@@ -15,8 +14,7 @@ class Slider extends React.Component {
                         <img src={v.picUrl} />
                         <div className="slider-title">{v.title}</div>
                     </a>
-                }
-                )}
+                })}
             </div>
         )
     }

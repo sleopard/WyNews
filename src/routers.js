@@ -6,7 +6,7 @@ export default [
         })
     },
     {
-        name: '/seed',
+        name: '/seeding',
         component: require.ensure(['./view/DirectSeeding'], function (require) {
             return require('./view/DirectSeeding').default;
         })
